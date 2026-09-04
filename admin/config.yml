@@ -1,0 +1,58 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# 画像アップロード先フォルダ
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "site"
+    label: "サイト設定"
+    files:
+      - file: "content/site.json"
+        label: "トップページ編集"
+        name: "site"
+        fields:
+          - { label: "お知らせバー（強調部分・黄色）", name: "topbarBold", widget: "string" }
+          - { label: "お知らせバー（通常部分）", name: "topbarText", widget: "string" }
+          - label: "フォント"
+            name: "fonts"
+            widget: "object"
+            fields:
+              - label: "本文用フォント"
+                name: "body"
+                widget: "select"
+                options:
+                  - { label: "Noto Sans JP（ゴシック・標準）", value: "Noto Sans JP" }
+                  - { label: "Noto Serif JP（明朝・上品）", value: "Noto Serif JP" }
+                  - { label: "Zen Maru Gothic（丸ゴシック・やわらか）", value: "Zen Maru Gothic" }
+                  - { label: "Kosugi Maru（丸ゴシック・ポップ）", value: "Kosugi Maru" }
+                  - { label: "M PLUS Rounded 1c（丸ゴシック）", value: "M PLUS Rounded 1c" }
+              - label: "ロゴ・見出し用フォント"
+                name: "accent"
+                widget: "select"
+                options:
+                  - { label: "Pacifico（手書き風・トロピカル）", value: "Pacifico" }
+                  - { label: "Dancing Script（手書き風・エレガント）", value: "Dancing Script" }
+                  - { label: "Playfair Display（欧文セリフ・高級感）", value: "Playfair Display" }
+                  - { label: "Bebas Neue（欧文・力強い）", value: "Bebas Neue" }
+                  - { label: "Montserrat（シンプル・モダン）", value: "Montserrat" }
+          - label: "ヒーロー画像（トップの大きな写真）"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "背景写真", name: "image", widget: "image" }
+          - label: "About（店舗紹介）"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "写真", name: "image", widget: "image" }
+              - { label: "紹介文1", name: "text1", widget: "text" }
+              - { label: "紹介文2", name: "text2", widget: "text" }
+          - label: "ギャラリー（店内写真・3〜6枚推奨）"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "写真", name: "image", widget: "image" }
+              - { label: "説明文（任意）", name: "alt", widget: "string", required: false }

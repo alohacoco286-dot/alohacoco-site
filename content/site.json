@@ -1,0 +1,21 @@
+{
+  "topbarBold": "￥3,980以上お買い物で送料無料!!",
+  "topbarText": "土日・祝発送業務お休み",
+  "fonts": {
+    "body": "Noto Sans JP",
+    "accent": "Pacifico"
+  },
+  "hero": {
+    "image": "https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/cc6e71204b0c1c704f89ef1b0ad80da6.jpeg"
+  },
+  "about": {
+    "image": "IMG_0942.JPG",
+    "text1": "ALOHACOCOは、海好き・ハワイ好き・沖縄好きな方に向けて、オリジナルデザインのTシャツやキャップ、バッグ、ハワイアンジュエリーなどを取り揃えています。",
+    "text2": "大人からキッズまで、家族みんなで楽しめるアイテムを揃えているので、ファミリーコーデやお揃いコーデもおすすめです。"
+  },
+  "gallery": [
+    { "image": "IMG_0881.JPG", "alt": "店内ディスプレイ" },
+    { "image": "IMG_0821.JPG", "alt": "ALOHAISAI ロングスリーブTシャツ" },
+    { "image": "IMG_0932.JPG", "alt": "店内の様子" }
+  ]
+}

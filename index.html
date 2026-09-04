@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALOHACOCO | 沖縄発セレクトショップ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Pacifico&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean:#0e7490;
+    --ocean-deep:#155e75;
+    --sky:#e0f4f8;
+    --sand:#fdf8ef;
+    --coral:#ff8c69;
+    --coral-deep:#f26b4e;
+    --sun:#ffc206;
+    --ink:#1f2a33;
+    --white:#ffffff;
+    --font-body:'Noto Sans JP','Montserrat',sans-serif;
+    --font-accent:'Pacifico',cursive;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font-body);color:var(--ink);background:var(--sand);line-height:1.7;}
+  img{max-width:100%;display:block;}
+  a{text-decoration:none;color:inherit;}
+
+  /* ---- announcement bar ---- */
+  .topbar{background:var(--ocean-deep);color:#fff;text-align:center;font-size:13px;padding:8px 16px;letter-spacing:.05em;}
+  .topbar strong{color:var(--sun);}
+
+  /* ---- header ---- */
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(14,116,144,.15);}
+  .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;}
+  .logo{font-family:var(--font-accent);font-size:28px;color:var(--ocean);}
+  .logo span{color:var(--coral-deep);}
+  nav ul{display:flex;gap:28px;list-style:none;}
+  nav a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);transition:color .2s;}
+  nav a:hover{color:var(--coral-deep);}
+  .cart-btn{background:var(--coral);color:#fff;font-weight:700;font-size:13px;padding:9px 20px;border-radius:999px;transition:background .2s;white-space:nowrap;}
+  .cart-btn:hover{background:var(--coral-deep);}
+  .menu-toggle{display:none;background:none;border:none;font-size:26px;color:var(--ocean);cursor:pointer;}
+
+  /* ---- hero ---- */
+  .hero{position:relative;min-height:72vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;background-size:cover;background-position:center;}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,74,92,.35),rgba(14,74,92,.55));}
+  .hero-content{position:relative;z-index:2;color:#fff;padding:60px 20px;}
+  .hero-content .script{font-family:var(--font-accent);font-size:clamp(44px,8vw,84px);text-shadow:0 4px 24px rgba(0,0,0,.35);}
+  .hero-content .sub{font-family:'Montserrat',sans-serif;letter-spacing:.5em;font-weight:700;font-size:clamp(13px,2vw,18px);margin-top:8px;text-transform:uppercase;}
+  .hero-content p{margin-top:18px;font-size:15px;text-shadow:0 2px 12px rgba(0,0,0,.4);}
+  .hero-cta{display:inline-block;margin-top:30px;background:var(--sun);color:var(--ink);font-weight:700;padding:14px 42px;border-radius:999px;font-size:15px;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:transform .2s,box-shadow .2s;}
+  .hero-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.3);}
+  .wave{position:absolute;bottom:-1px;left:0;width:100%;z-index:3;}
+
+  /* ---- section common ---- */
+  section{padding:72px 20px;}
+  .container{max-width:1200px;margin:0 auto;}
+  .sec-title{text-align:center;margin-bottom:12px;}
+  .sec-title .en{font-family:var(--font-accent);font-size:34px;color:var(--ocean);}
+  .sec-title .jp{display:block;font-size:13px;letter-spacing:.3em;color:var(--coral-deep);font-weight:700;margin-top:4px;}
+  .sec-lead{text-align:center;font-size:14px;color:#5b6b75;margin-bottom:44px;}
+
+  /* ---- pickup ---- */
+  .pickup{background:var(--sky);}
+  .pickup-card{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 12px 40px rgba(14,116,144,.12);}
+  .pickup-card img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1;}
+  .pickup-body{padding:40px 48px 40px 0;}
+  .pickup-body .badge{display:inline-block;background:var(--coral);color:#fff;font-size:11px;font-weight:700;letter-spacing:.2em;padding:5px 14px;border-radius:999px;margin-bottom:16px;}
+  .pickup-body h3{font-size:24px;margin-bottom:8px;}
+  .pickup-body .price{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;color:var(--ocean);margin-bottom:16px;}
+  .pickup-body p{font-size:14px;color:#5b6b75;margin-bottom:24px;}
+  .btn-outline{display:inline-block;border:2px solid var(--ocean);color:var(--ocean);font-weight:700;font-size:14px;padding:11px 34px;border-radius:999px;transition:all .2s;}
+  .btn-outline:hover{background:var(--ocean);color:#fff;}
+
+  /* ---- products ---- */
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+  .card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(14,116,144,.08);transition:transform .25s,box-shadow .25s;display:block;}
+  .card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(14,116,144,.18);}
+  .card .thumb{position:relative;overflow:hidden;aspect-ratio:1/1;}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+  .card:hover .thumb img{transform:scale(1.06);}
+  .card .tag{position:absolute;top:12px;left:12px;background:var(--sun);color:var(--ink);font-size:11px;font-weight:800;letter-spacing:.1em;padding:4px 12px;border-radius:999px;}
+  .card .info{padding:16px 18px 20px;}
+  .card .name{font-size:13.5px;font-weight:500;min-height:3em;}
+  .card .price{font-family:'Montserrat',sans-serif;font-weight:800;color:var(--coral-deep);font-size:16px;margin-top:6px;}
+  .view-all{text-align:center;margin-top:48px;}
+
+  /* ---- category ---- */
+  .category{background:linear-gradient(180deg,var(--sand) 0%,var(--sky) 100%);}
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .cat-card{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/9;box-shadow:0 6px 20px rgba(14,116,144,.1);display:block;background:#fff;}
+  .cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+  .cat-card:hover img{transform:scale(1.05);}
+  .cat-card .label{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,rgba(21,94,117,.85),transparent);color:#fff;font-weight:700;font-size:15px;padding:26px 18px 12px;letter-spacing:.08em;}
+
+  /* ---- about ---- */
+  .about-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .about-inner img{border-radius:24px;box-shadow:0 12px 40px rgba(14,116,144,.15);aspect-ratio:4/3;object-fit:cover;width:100%;}
+  .about-text h2{font-family:var(--font-accent);font-size:34px;color:var(--ocean);margin-bottom:6px;}
+  .about-text .jp-sub{font-size:13px;letter-spacing:.3em;color:var(--coral-deep);font-weight:700;margin-bottom:22px;}
+  .about-text p{font-size:14.5px;color:#4a5a64;margin-bottom:16px;}
+
+  /* ---- instagram ---- */
+  .insta{background:var(--ocean);color:#fff;text-align:center;}
+  .insta .sec-title .en{color:#fff;}
+  .insta .sec-title .jp{color:var(--sun);}
+  .insta p{font-size:14px;opacity:.9;margin-bottom:28px;}
+  .insta-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--ocean);font-weight:700;padding:14px 38px;border-radius:999px;font-size:15px;transition:transform .2s;}
+  .insta-btn:hover{transform:translateY(-2px);}
+  .insta-btn svg{width:20px;height:20px;}
+  .sns-row{margin-top:26px;display:flex;justify-content:center;gap:22px;font-size:13px;font-weight:600;}
+  .sns-row a{opacity:.85;border-bottom:1px solid transparent;}
+  .sns-row a:hover{opacity:1;border-color:#fff;}
+
+  /* ---- gallery ---- */
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .gallery-item{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 8px 24px rgba(14,116,144,.12);aspect-ratio:4/3;}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .gallery-item:hover img{transform:scale(1.08);}
+  .gallery-item .cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(to top,rgba(21,94,117,.75),transparent);color:#fff;font-size:13px;font-weight:600;padding:24px 16px 10px;opacity:0;transition:opacity .3s;}
+  .gallery-item:hover .cap{opacity:1;}
+  @media(max-width:680px){.gallery-grid{grid-template-columns:1fr;}}
+
+  /* ---- scroll reveal animation ---- */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  /* ---- footer ---- */
+  footer{background:var(--ocean-deep);color:#cfe8ef;font-size:13px;}
+  .footer-inner{max-width:1200px;margin:0 auto;padding:56px 20px 24px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;}
+  .footer-logo{font-family:var(--font-accent);font-size:26px;color:#fff;margin-bottom:12px;}
+  footer h4{color:#fff;font-size:13px;letter-spacing:.2em;margin-bottom:14px;font-family:'Montserrat',sans-serif;}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:9px;}
+  footer a:hover{color:#fff;text-decoration:underline;}
+  .copyright{text-align:center;padding:18px;border-top:1px solid rgba(255,255,255,.15);font-size:12px;}
+
+  /* ---- responsive ---- */
+  @media(max-width:960px){
+    .grid{grid-template-columns:repeat(3,1fr);}
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+    .pickup-card{grid-template-columns:1fr;}
+    .pickup-body{padding:8px 32px 36px;}
+    .about-inner{grid-template-columns:1fr;}
+  }
+  @media(max-width:680px){
+    nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid rgba(14,116,144,.15);padding:16px 24px;}
+    nav.open{display:block;}
+    nav ul{flex-direction:column;gap:16px;}
+    .menu-toggle{display:block;}
+    .grid{grid-template-columns:repeat(2,1fr);gap:16px;}
+    .cat-grid{grid-template-columns:1fr;}
+    section{padding:52px 16px;}
+    .footer-inner{grid-template-columns:1fr;gap:28px;}
+    .card .name{min-height:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar"><strong id="topbar-bold">￥3,980以上お買い物で送料無料!!</strong>　<span id="topbar-text">土日・祝発送業務お休み</span></div>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">Aloha<span>Coco</span></a>
+    <nav id="nav">
+      <ul>
+        <li><a href="#new-arrival">New Arrival</a></li>
+        <li><a href="#category">Category</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="https://www.instagram.com/alohacoco_official/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <a class="cart-btn" href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">Online Shop</a>
+      <button class="menu-toggle" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="hero" style="background-image:url('https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/cc6e71204b0c1c704f89ef1b0ad80da6.jpeg')">
+  <div class="hero-content">
+    <!-- <div class="script">AlohaCoco</div> -->
+    <!-- <div class="sub">Okinawa &times; Hawaii</div> -->
+    <a class="hero-cta" href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">SHOP NOW</a>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#fdf8ef" d="M0,40 C240,90 480,0 720,30 C960,60 1200,20 1440,50 L1440,80 L0,80 Z"/></svg>
+</div>
+
+<!-- PICKUP
+<section class="pickup" id="pickup">
+  <div class="container">
+    <div class="sec-title"><span class="en">Pick Up</span><span class="jp">今月のおすすめ</span></div>
+    <p class="sec-lead">スタッフイチオシのアイテムをご紹介します。</p>
+    <div class="pickup-card">
+      <img src="https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/61cafb051a13a91401cb7f4e655be2ed.png" alt="ペイズリー柄バンダナ(2COLOR)" loading="lazy">
+      <div class="pickup-body">
+        <span class="badge">PICK UP</span>
+        <h3>ペイズリー柄バンダナ (2COLOR)</h3>
+        <div class="price">¥1,600</div>
+        <p>オリジナルロゴが特徴のスタイリッシュなアイテム。ヘアアクセサリーはもちろん、バッグや帽子のアクセント、お弁当包みとしても活躍。軽量で持ち運びも便利なので、いつものコーデにちょっとしたアクセントをプラスしたい時にぴったりです。</p>
+        <a class="btn-outline" href="https://cocoshopcoco.thebase.in/items/89509589" target="_blank" rel="noopener">VIEW DETAIL</a>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- NEW ARRIVAL -->
+<section id="new-arrival">
+  <div class="container">
+    <div class="sec-title"><span class="en">New Arrival</span><span class="jp">新着アイテム</span></div>
+    <p class="sec-lead">商品をクリック・タップするとオンラインショップの商品ページへ移動します。</p>
+    <div class="grid">
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/142959355" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/3d14e9ad499d03c3487af3d019fb57fb.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="SURFGIRLCOCOキーホルダー" loading="lazy"></div>
+        <div class="info"><div class="name">SURFGIRLCOCO キーホルダー</div><div class="price">¥1,500</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/155685932" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/87bb4421306d36d988eca0678e764383.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="ALOHACOCOビーチサンダル" loading="lazy"></div>
+        <div class="info"><div class="name">ALOHACOCO ビーチサンダル</div><div class="price">¥3,900</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/143166119" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/068a27e35f66453c31259ff28b61eafe.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="ONE LOVE TEE(ホワイト)" loading="lazy"></div>
+        <div class="info"><div class="name">ONE LOVE TEE（ホワイト）</div><div class="price">¥5,500</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/143166175" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/2beea257a939b30847dae173784fdc0c.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="ONE LOVE TEE(ブラック)" loading="lazy"></div>
+        <div class="info"><div class="name">ONE LOVE TEE（ブラック）</div><div class="price">¥5,500</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/144931117" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/f20e7a71a26ac711f935e7d449d3c984.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="SUNSET HULA GIRL TEE（フェードベージュ）" loading="lazy"></div>
+        <div class="info"><div class="name">SUNSET HULA GIRL TEE（フェードベージュ）</div><div class="price">¥5,500</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/144931071" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/aa5ee6aad084c0dd1baffe601038b712.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="SUNSET HULA GIRL TEE（フェードブラック）" loading="lazy"></div>
+        <div class="info"><div class="name">SUNSET HULA GIRL TEE（フェードブラック）</div><div class="price">¥5,500</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/110250948" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/82ec9588e18265d1ac57758aacbe5ec7.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="ALOHACOCOタンクトップ(2COLOR)" loading="lazy"></div>
+        <div class="info"><div class="name">ALOHACOCO タンクトップ（2COLOR）</div><div class="price">¥3,900</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/74513771" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">人気</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/1f0da90473b9f52f547f8039bdb16c0b.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="ALOHACOCO大型トートバッグ(BLACK)" loading="lazy"></div>
+        <div class="info"><div class="name">ALOHACOCO 大型トートバッグ（BLACK）</div><div class="price">¥6,500</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/114711289" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/9810ea1952075c6bb5956a162750d1a4.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="デニムペイズリー柄トートバッグ(B)Mサイズ" loading="lazy"></div>
+        <div class="info"><div class="name">デニムペイズリー柄トートバッグ（B）Mサイズ</div><div class="price">¥6,200</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/153684834" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">人気</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/cbd306d89b8fb9bb1d7a073b11549a07.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="大人気2WAYミニトートバッグ(ブラック)" loading="lazy"></div>
+        <div class="info"><div class="name">大人気2WAYミニトートバッグ（ブラック）</div><div class="price">¥3,900</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/118099265" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/9c007429d7bc18feb675fba8e3d435d0.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="ALOHAMAHALO TEE" loading="lazy"></div>
+        <div class="info"><div class="name">ALOHAMAHALO TEE</div><div class="price">¥5,500</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/38644510" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">定番</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/6824992cf1ac22fbed8be640acbdf6ac.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="HANAGASA GIRL CAP【3COLOR】" loading="lazy"></div>
+        <div class="info"><div class="name">HANAGASA GIRL CAP【3COLOR】</div><div class="price">¥5,200</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/153479755" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">KIDS</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/73eb714960e5008c866da05fc037e3d2.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="ALOHACOCO DENIM KIDS CAP【1歳~5歳】" loading="lazy"></div>
+        <div class="info"><div class="name">ALOHACOCO DENIM KIDS CAP【1歳〜5歳】</div><div class="price">¥3,800</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/128844675" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/297b8f129b7d75cac14fb448ab6085b4.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="ALOHACOCOネットバッグ 厚手コットン巾着付 ナチュラル" loading="lazy"></div>
+        <div class="info"><div class="name">ALOHACOCO ネットバッグ 厚手コットン巾着付</div><div class="price">¥2,500</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/74771811" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/fbc772821893049ba75516a452b6ee6f.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="FDナニボトル (Palm tree)" loading="lazy"></div>
+        <div class="info"><div class="name">FD ナニボトル（Palm tree）</div><div class="price">¥3,520</div></div>
+      </a>
+
+      <a class="card" href="https://cocoshopcoco.thebase.in/items/74892640" target="_blank" rel="noopener">
+        <div class="thumb"><span class="tag">人気</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/77331e5245cfbfde27ba56125e52d5e2.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="ALOHACOCO人気ロゴcollection Tee(BLACK)" loading="lazy"></div>
+        <div class="info"><div class="name">ALOHACOCO 人気ロゴcollection Tee（BLACK）</div><div class="price">¥5,500</div></div>
+      </a>
+
+    </div>
+    <div class="view-all"><a class="btn-outline" href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">VIEW ALL ITEMS</a></div>
+  </div>
+</section>
+
+<!-- CATEGORY -->
+<section class="category" id="category">
+  <div class="container">
+    <div class="sec-title"><span class="en">Category</span><span class="jp">カテゴリーから探す</span></div>
+    <p class="sec-lead">お好みのカテゴリーからアイテムをお探しいただけます。</p>
+    <div class="cat-grid">
+      <a class="cat-card" href="https://cocoshopcoco.thebase.in/categories/900832" target="_blank" rel="noopener">
+        <img src="https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/9ef65afbd2e8f0a7e7383328c40875d4.png" alt="レディースファッション" loading="lazy">
+        <span class="label">レディースファッション</span>
+      </a>
+      <a class="cat-card" href="https://cocoshopcoco.thebase.in/categories/900838" target="_blank" rel="noopener">
+        <img src="https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/f486c9f6e8d37b4577a10443a029a486.png" alt="ユニセックスファッション" loading="lazy">
+        <span class="label">ユニセックスファッション</span>
+      </a>
+      <a class="cat-card" href="https://cocoshopcoco.thebase.in/categories/2513066" target="_blank" rel="noopener">
+        <img src="https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/e34f146e46ca45d9fa44cbf1e3ea022d.png" alt="メンズファッション" loading="lazy">
+        <span class="label">メンズファッション</span>
+      </a>
+      <a class="cat-card" href="https://cocoshopcoco.thebase.in/categories/900843" target="_blank" rel="noopener">
+        <img src="https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/b5a34394c90f13b9bec330a8853d692d.png" alt="キッズファッション" loading="lazy">
+        <span class="label">キッズファッション</span>
+      </a>
+      <a class="cat-card" href="https://cocoshopcoco.thebase.in/categories/2513045" target="_blank" rel="noopener">
+        <img src="https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/3e961a3805aa4cf1365d5a7e707be68a.png" alt="アクセサリー" loading="lazy">
+        <span class="label">アクセサリー</span>
+      </a>
+      <a class="cat-card" href="https://cocoshopcoco.thebase.in/categories/2513050" target="_blank" rel="noopener">
+        <img src="https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/5fbea5bc1479cf8952c5a355cc9a88d5.png" alt="雑貨・小物" loading="lazy">
+        <span class="label">雑貨・小物</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="sec-title"><span class="en">Shop Gallery</span><span class="jp">店内の様子</span></div>
+    <p class="sec-lead">那覇の実店舗にもぜひ遊びに来てください。</p>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-item"><img src="IMG_0881.JPG" alt="店内ディスプレイ" loading="lazy"><span class="cap"></span></div>
+      <div class="gallery-item"><img src="IMG_0821.JPG" alt="ALOHAISAI ロングスリーブTシャツ" loading="lazy"><span class="cap"></span></div>
+      <div class="gallery-item"><img src="IMG_0932.JPG" alt="店内の様子" loading="lazy"><span class="cap"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-inner">
+    <img id="about-img" src="IMG_0942.JPG" alt="ALOHACOCO 店内ディスプレイ" loading="lazy">
+    <div class="about-text">
+      <h2>About AlohaCoco</h2>
+      <div class="jp-sub">ALOHACOCOについて</div>
+      <p id="about-text1">ALOHACOCOは、海好き・ハワイ好き・沖縄好きな方に向けて、オリジナルデザインのTシャツやキャップ、バッグ、ハワイアンジュエリーなどを取り揃えています。</p>
+      <p id="about-text2">大人からキッズまで、家族みんなで楽しめるアイテムを揃えているので、ファミリーコーデやお揃いコーデもおすすめです。</p>
+      <a class="btn-outline" href="https://cocoshopcoco.thebase.in/about" target="_blank" rel="noopener">MORE</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta">
+  <div class="container">
+    <div class="sec-title"><span class="en">Follow Us</span><span class="jp">最新情報はSNSでチェック</span></div>
+    <p>新商品やキャンペーン情報をいち早くお届けしています。<br>フォローお待ちしています！</p>
+    <a class="insta-btn" href="https://www.instagram.com/alohacoco_official/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+      @alohacoco_official
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">AlohaCoco</div>
+
+    </div>
+    <div>
+      <h4>SHOPPING</h4>
+      <ul>
+        <li><a href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">オンラインショップ</a></li>
+        <li><a href="https://cocoshopcoco.thebase.in/categories/3928241" target="_blank" rel="noopener">SALE</a></li>
+        <li><a href="https://cocoshopcoco.thebase.in/categories/4181399" target="_blank" rel="noopener">お得なギフトセット</a></li>
+        <li><a href="https://cocoshopcoco.thebase.in/blog" target="_blank" rel="noopener">BLOG</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>GUIDE</h4>
+      <ul>
+        <li><a href="https://cocoshopcoco.thebase.in/about" target="_blank" rel="noopener">ALOHACOCOについて</a></li>
+        <li><a href="https://thebase.com/inquiry/cocoshopcoco" target="_blank" rel="noopener">お問い合わせ</a></li>
+        <li><a href="https://cocoshopcoco.thebase.in/privacy" target="_blank" rel="noopener">プライバシーポリシー</a></li>
+        <li><a href="https://cocoshopcoco.thebase.in/law" target="_blank" rel="noopener">特定商取引法に基づく表記</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">© ALOHACOCO All Rights Reserved.</div>
+</footer>
+
+<script>
+(function(){
+  var targets = document.querySelectorAll('.card, .cat-card, .gallery-item, .sec-title, .sec-lead, .about-inner > *');
+  targets.forEach(function(el){ el.classList.add('reveal'); });
+  // グリッド内は少しずつ時間差で表示
+  document.querySelectorAll('.grid, .cat-grid, .gallery-grid').forEach(function(g){
+    Array.prototype.forEach.call(g.children, function(c, i){ c.style.transitionDelay = (i % 4) * 0.1 + 's'; });
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  targets.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<!-- CMSで編集した内容(content/site.json)をページに反映する -->
+<script>
+(function(){
+  fetch('content/site.json', { cache: 'no-store' }).then(function(r){
+    if (!r.ok) throw new Error('site.json not found');
+    return r.json();
+  }).then(function(data){
+    if (data.fonts) {
+      var FONT_MAP = {
+        'Noto Sans JP': { google: 'Noto+Sans+JP:wght@400;500;700', css: "'Noto Sans JP','Montserrat',sans-serif" },
+        'Noto Serif JP': { google: 'Noto+Serif+JP:wght@400;600;700', css: "'Noto Serif JP',serif" },
+        'Zen Maru Gothic': { google: 'Zen+Maru+Gothic:wght@400;500;700', css: "'Zen Maru Gothic',sans-serif" },
+        'Kosugi Maru': { google: 'Kosugi+Maru', css: "'Kosugi Maru',sans-serif" },
+        'M PLUS Rounded 1c': { google: 'M+PLUS+Rounded+1c:wght@400;500;700', css: "'M PLUS Rounded 1c',sans-serif" },
+        'Pacifico': { google: 'Pacifico', css: "'Pacifico',cursive" },
+        'Dancing Script': { google: 'Dancing+Script:wght@600;700', css: "'Dancing Script',cursive" },
+        'Playfair Display': { google: 'Playfair+Display:wght@700;800', css: "'Playfair Display',serif" },
+        'Bebas Neue': { google: 'Bebas+Neue', css: "'Bebas Neue',sans-serif" },
+        'Montserrat': { google: 'Montserrat:wght@400;600;700;800', css: "'Montserrat',sans-serif" }
+      };
+      var bodyFont = FONT_MAP[data.fonts.body] || FONT_MAP['Noto Sans JP'];
+      var accentFont = FONT_MAP[data.fonts.accent] || FONT_MAP['Pacifico'];
+      var fontLink = document.createElement('link');
+      fontLink.rel = 'stylesheet';
+      fontLink.href = 'https://fonts.googleapis.com/css2?family=' + bodyFont.google + '&family=' + accentFont.google + '&display=swap';
+      document.head.appendChild(fontLink);
+      document.documentElement.style.setProperty('--font-body', bodyFont.css);
+      document.documentElement.style.setProperty('--font-accent', accentFont.css);
+    }
+
+    if (data.topbarBold) document.getElementById('topbar-bold').textContent = data.topbarBold;
+    if (data.topbarText) document.getElementById('topbar-text').textContent = data.topbarText;
+
+    if (data.hero && data.hero.image) {
+      document.getElementById('hero').style.backgroundImage = "url('" + data.hero.image + "')";
+    }
+
+    if (data.about) {
+      if (data.about.image) document.getElementById('about-img').src = data.about.image;
+      if (data.about.text1) document.getElementById('about-text1').textContent = data.about.text1;
+      if (data.about.text2) document.getElementById('about-text2').textContent = data.about.text2;
+    }
+
+    if (data.gallery && data.gallery.length) {
+      var grid = document.getElementById('gallery-grid');
+      grid.innerHTML = '';
+      data.gallery.forEach(function(item){
+        var div = document.createElement('div');
+        div.className = 'gallery-item reveal visible';
+        var img = document.createElement('img');
+        img.src = item.image;
+        img.alt = item.alt || '';
+        img.loading = 'lazy';
+        div.appendChild(img);
+        var cap = document.createElement('span');
+        cap.className = 'cap';
+        cap.textContent = item.alt || '';
+        div.appendChild(cap);
+        grid.appendChild(div);
+      });
+    }
+  }).catch(function(e){
+    console.warn('content/site.json を読み込めませんでした（初期表示のまま）:', e);
+  });
+})();
+</script>
+
+<!-- Netlify Identity（管理画面ログイン用） -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function(user) {
+      if (!user) {
+        window.netlifyIdentity.on("login", function() {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+</body>
+</html>
