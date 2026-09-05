@@ -1,9 +1,9 @@
 {
   "topbarBold": "￥3,980以上お買い物で送料無料!!",
-  "topbarText": "test",
+  "topbarText": "土日お休み",
   "fonts": {
     "body": "Noto Sans JP",
-    "accent": "Montserrat"
+    "accent": "Pacifico"
   },
   "hero": {
     "image": "https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/cc6e71204b0c1c704f89ef1b0ad80da6.jpeg"
