@@ -5,17 +5,100 @@
     "body": "Noto Sans JP",
     "accent": "Pacifico"
   },
-  "hero": {
-    "image": "https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/cc6e71204b0c1c704f89ef1b0ad80da6.jpeg"
+  "nav": [
+    { "label": "New Arrival", "href": "#new-arrival" },
+    { "label": "Category", "href": "#category" },
+    { "label": "Gallery", "href": "#gallery" },
+    { "label": "About", "href": "#about" },
+    { "label": "Instagram", "href": "https://www.instagram.com/alohacoco_official/" }
+  ],
+  "cartButton": {
+    "label": "Online Shop",
+    "href": "https://cocoshopcoco.thebase.in/"
   },
-  "about": {
-    "image": "IMG_0942.JPG",
-    "text1": "ALOHACOCOは、海好き・ハワイ好き・沖縄好きな方に向けて、オリジナルデザインのTシャツやキャップ、バッグ、ハワイアンジュエリーなどを取り揃えています。",
-    "text2": "大人からキッズまで、家族みんなで楽しめるアイテムを揃えているので、ファミリーコーデやお揃いコーデもおすすめです。"
+  "hero": {
+    "image": "https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/cc6e71204b0c1c704f89ef1b0ad80da6.jpeg",
+    "ctaLabel": "SHOP NOW",
+    "ctaHref": "https://cocoshopcoco.thebase.in/"
+  },
+  "newArrival": {
+    "titleEn": "New Arrival",
+    "titleJp": "新着アイテム",
+    "lead": "商品をクリック・タップするとオンラインショップの商品ページへ移動します。",
+    "viewAllLabel": "VIEW ALL ITEMS",
+    "viewAllHref": "https://cocoshopcoco.thebase.in/",
+    "items": [
+      { "tag": "NEW", "name": "SURFGIRLCOCO キーホルダー", "price": "¥1,500", "href": "https://cocoshopcoco.thebase.in/items/142959355", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/3d14e9ad499d03c3487af3d019fb57fb.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "NEW", "name": "ALOHACOCO ビーチサンダル", "price": "¥3,900", "href": "https://cocoshopcoco.thebase.in/items/155685932", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/87bb4421306d36d988eca0678e764383.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "NEW", "name": "ONE LOVE TEE（ホワイト）", "price": "¥5,500", "href": "https://cocoshopcoco.thebase.in/items/143166119", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/068a27e35f66453c31259ff28b61eafe.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "NEW", "name": "ONE LOVE TEE（ブラック）", "price": "¥5,500", "href": "https://cocoshopcoco.thebase.in/items/143166175", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/2beea257a939b30847dae173784fdc0c.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "NEW", "name": "SUNSET HULA GIRL TEE（フェードベージュ）", "price": "¥5,500", "href": "https://cocoshopcoco.thebase.in/items/144931117", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/f20e7a71a26ac711f935e7d449d3c984.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "NEW", "name": "SUNSET HULA GIRL TEE（フェードブラック）", "price": "¥5,500", "href": "https://cocoshopcoco.thebase.in/items/144931071", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/aa5ee6aad084c0dd1baffe601038b712.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "NEW", "name": "ALOHACOCO タンクトップ（2COLOR）", "price": "¥3,900", "href": "https://cocoshopcoco.thebase.in/items/110250948", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/82ec9588e18265d1ac57758aacbe5ec7.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "人気", "name": "ALOHACOCO 大型トートバッグ（BLACK）", "price": "¥6,500", "href": "https://cocoshopcoco.thebase.in/items/74513771", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/1f0da90473b9f52f547f8039bdb16c0b.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "NEW", "name": "デニムペイズリー柄トートバッグ（B）Mサイズ", "price": "¥6,200", "href": "https://cocoshopcoco.thebase.in/items/114711289", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/9810ea1952075c6bb5956a162750d1a4.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "人気", "name": "大人気2WAYミニトートバッグ（ブラック）", "price": "¥3,900", "href": "https://cocoshopcoco.thebase.in/items/153684834", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/cbd306d89b8fb9bb1d7a073b11549a07.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "NEW", "name": "ALOHAMAHALO TEE", "price": "¥5,500", "href": "https://cocoshopcoco.thebase.in/items/118099265", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/9c007429d7bc18feb675fba8e3d435d0.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "定番", "name": "HANAGASA GIRL CAP【3COLOR】", "price": "¥5,200", "href": "https://cocoshopcoco.thebase.in/items/38644510", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/6824992cf1ac22fbed8be640acbdf6ac.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "KIDS", "name": "ALOHACOCO DENIM KIDS CAP【1歳〜5歳】", "price": "¥3,800", "href": "https://cocoshopcoco.thebase.in/items/153479755", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/73eb714960e5008c866da05fc037e3d2.png?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "NEW", "name": "ALOHACOCO ネットバッグ 厚手コットン巾着付", "price": "¥2,500", "href": "https://cocoshopcoco.thebase.in/items/128844675", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/297b8f129b7d75cac14fb448ab6085b4.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "NEW", "name": "FD ナニボトル（Palm tree）", "price": "¥3,520", "href": "https://cocoshopcoco.thebase.in/items/74771811", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/fbc772821893049ba75516a452b6ee6f.jpg?imformat=generic&q=90&im=Resize,width=640,type=normal" },
+      { "tag": "人気", "name": "ALOHACOCO 人気ロゴcollection Tee（BLACK）", "price": "¥5,500", "href": "https://cocoshopcoco.thebase.in/items/74892640", "image": "https://baseec-img-mng.akamaized.net/images/item/origin/77331e5245cfbfde27ba56125e52d5e2.png?imformat=generic&q=90&im=Resize,width=640,type=normal" }
+    ]
+  },
+  "category": {
+    "titleEn": "Category",
+    "titleJp": "カテゴリーから探す",
+    "lead": "お好みのカテゴリーからアイテムをお探しいただけます。",
+    "items": [
+      { "label": "レディースファッション", "href": "https://cocoshopcoco.thebase.in/categories/900832", "image": "https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/9ef65afbd2e8f0a7e7383328c40875d4.png" },
+      { "label": "ユニセックスファッション", "href": "https://cocoshopcoco.thebase.in/categories/900838", "image": "https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/f486c9f6e8d37b4577a10443a029a486.png" },
+      { "label": "メンズファッション", "href": "https://cocoshopcoco.thebase.in/categories/2513066", "image": "https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/e34f146e46ca45d9fa44cbf1e3ea022d.png" },
+      { "label": "キッズファッション", "href": "https://cocoshopcoco.thebase.in/categories/900843", "image": "https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/b5a34394c90f13b9bec330a8853d692d.png" },
+      { "label": "アクセサリー", "href": "https://cocoshopcoco.thebase.in/categories/2513045", "image": "https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/3e961a3805aa4cf1365d5a7e707be68a.png" },
+      { "label": "雑貨・小物", "href": "https://cocoshopcoco.thebase.in/categories/2513050", "image": "https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/5fbea5bc1479cf8952c5a355cc9a88d5.png" }
+    ]
+  },
+  "gallerySection": {
+    "titleEn": "Shop Gallery",
+    "titleJp": "店内の様子",
+    "lead": "那覇の実店舗にもぜひ遊びに来てください。"
   },
   "gallery": [
     { "image": "IMG_0881.JPG", "alt": "店内ディスプレイ" },
     { "image": "IMG_0821.JPG", "alt": "ALOHAISAI ロングスリーブTシャツ" },
     { "image": "IMG_0932.JPG", "alt": "店内の様子" }
-  ]
+  ],
+  "about": {
+    "titleEn": "About AlohaCoco",
+    "jpSub": "ALOHACOCOについて",
+    "image": "IMG_0942.JPG",
+    "text1": "ALOHACOCOは、海好き・ハワイ好き・沖縄好きな方に向けて、オリジナルデザインのTシャツやキャップ、バッグ、ハワイアンジュエリーなどを取り揃えています。",
+    "text2": "大人からキッズまで、家族みんなで楽しめるアイテムを揃えているので、ファミリーコーデやお揃いコーデもおすすめです。",
+    "buttonLabel": "MORE",
+    "buttonHref": "https://cocoshopcoco.thebase.in/about"
+  },
+  "instagram": {
+    "titleEn": "Follow Us",
+    "titleJp": "最新情報はSNSでチェック",
+    "leadLine1": "新商品やキャンペーン情報をいち早くお届けしています。",
+    "leadLine2": "フォローお待ちしています！",
+    "buttonHref": "https://www.instagram.com/alohacoco_official/",
+    "handle": "@alohacoco_official"
+  },
+  "footer": {
+    "shoppingLinks": [
+      { "label": "オンラインショップ", "href": "https://cocoshopcoco.thebase.in/" },
+      { "label": "SALE", "href": "https://cocoshopcoco.thebase.in/categories/3928241" },
+      { "label": "お得なギフトセット", "href": "https://cocoshopcoco.thebase.in/categories/4181399" },
+      { "label": "BLOG", "href": "https://cocoshopcoco.thebase.in/blog" }
+    ],
+    "guideLinks": [
+      { "label": "ALOHACOCOについて", "href": "https://cocoshopcoco.thebase.in/about" },
+      { "label": "お問い合わせ", "href": "https://thebase.com/inquiry/cocoshopcoco" },
+      { "label": "プライバシーポリシー", "href": "https://cocoshopcoco.thebase.in/privacy" },
+      { "label": "特定商取引法に基づく表記", "href": "https://cocoshopcoco.thebase.in/law" }
+    ],
+    "copyright": "© ALOHACOCO All Rights Reserved."
+  }
 }

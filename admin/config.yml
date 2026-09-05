@@ -16,6 +16,7 @@ collections:
         fields:
           - { label: "お知らせバー（強調部分・黄色）", name: "topbarBold", widget: "string" }
           - { label: "お知らせバー（通常部分）", name: "topbarText", widget: "string" }
+
           - label: "フォント"
             name: "fonts"
             widget: "object"
@@ -38,21 +39,119 @@ collections:
                   - { label: "Playfair Display（欧文セリフ・高級感）", value: "Playfair Display" }
                   - { label: "Bebas Neue（欧文・力強い）", value: "Bebas Neue" }
                   - { label: "Montserrat（シンプル・モダン）", value: "Montserrat" }
-          - label: "ヒーロー画像（トップの大きな写真）"
+
+          - label: "ナビゲーションメニュー"
+            name: "nav"
+            widget: "list"
+            fields:
+              - { label: "表示名", name: "label", widget: "string" }
+              - { label: "リンク先（#gallery のようなページ内リンク、またはhttps://〜）", name: "href", widget: "string" }
+
+          - label: "ヘッダーの「Online Shop」ボタン"
+            name: "cartButton"
+            widget: "object"
+            fields:
+              - { label: "ボタンの文字", name: "label", widget: "string" }
+              - { label: "リンク先URL", name: "href", widget: "string" }
+
+          - label: "ヒーロー（トップの大きな写真）"
             name: "hero"
             widget: "object"
             fields:
               - { label: "背景写真", name: "image", widget: "image" }
-          - label: "About（店舗紹介）"
-            name: "about"
+              - { label: "ボタンの文字", name: "ctaLabel", widget: "string" }
+              - { label: "ボタンのリンク先", name: "ctaHref", widget: "string" }
+
+          - label: "New Arrival（新着アイテム）セクション"
+            name: "newArrival"
             widget: "object"
             fields:
-              - { label: "写真", name: "image", widget: "image" }
-              - { label: "紹介文1", name: "text1", widget: "text" }
-              - { label: "紹介文2", name: "text2", widget: "text" }
+              - { label: "見出し（英語）", name: "titleEn", widget: "string" }
+              - { label: "見出し（日本語）", name: "titleJp", widget: "string" }
+              - { label: "説明文", name: "lead", widget: "string" }
+              - { label: "「すべて見る」ボタンの文字", name: "viewAllLabel", widget: "string" }
+              - { label: "「すべて見る」ボタンのリンク先", name: "viewAllHref", widget: "string" }
+              - label: "商品一覧"
+                name: "items"
+                widget: "list"
+                summary: "{{name}}"
+                fields:
+                  - { label: "写真", name: "image", widget: "image" }
+                  - { label: "商品名", name: "name", widget: "string" }
+                  - { label: "価格（例: ¥5,500）", name: "price", widget: "string" }
+                  - { label: "商品ページのリンク先（BASEの商品URL）", name: "href", widget: "string" }
+                  - { label: "バッジ文字（例: NEW／人気／定番／KIDS、空欄でも可）", name: "tag", widget: "string", required: false }
+
+          - label: "Category（カテゴリー）セクション"
+            name: "category"
+            widget: "object"
+            fields:
+              - { label: "見出し（英語）", name: "titleEn", widget: "string" }
+              - { label: "見出し（日本語）", name: "titleJp", widget: "string" }
+              - { label: "説明文", name: "lead", widget: "string" }
+              - label: "カテゴリー一覧"
+                name: "items"
+                widget: "list"
+                summary: "{{label}}"
+                fields:
+                  - { label: "写真", name: "image", widget: "image" }
+                  - { label: "カテゴリー名", name: "label", widget: "string" }
+                  - { label: "リンク先（BASEのカテゴリーURL）", name: "href", widget: "string" }
+
+          - label: "Shop Gallery（店内写真）セクション見出し"
+            name: "gallerySection"
+            widget: "object"
+            fields:
+              - { label: "見出し（英語）", name: "titleEn", widget: "string" }
+              - { label: "見出し（日本語）", name: "titleJp", widget: "string" }
+              - { label: "説明文", name: "lead", widget: "string" }
+
           - label: "ギャラリー（店内写真・3〜6枚推奨）"
             name: "gallery"
             widget: "list"
             fields:
               - { label: "写真", name: "image", widget: "image" }
               - { label: "説明文（任意）", name: "alt", widget: "string", required: false }
+
+          - label: "About（店舗紹介）"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "見出し（英語）", name: "titleEn", widget: "string" }
+              - { label: "見出し（日本語サブ）", name: "jpSub", widget: "string" }
+              - { label: "写真", name: "image", widget: "image" }
+              - { label: "紹介文1", name: "text1", widget: "text" }
+              - { label: "紹介文2", name: "text2", widget: "text" }
+              - { label: "ボタンの文字", name: "buttonLabel", widget: "string" }
+              - { label: "ボタンのリンク先", name: "buttonHref", widget: "string" }
+
+          - label: "Instagram（フォローセクション）"
+            name: "instagram"
+            widget: "object"
+            fields:
+              - { label: "見出し（英語）", name: "titleEn", widget: "string" }
+              - { label: "見出し（日本語）", name: "titleJp", widget: "string" }
+              - { label: "説明文（1行目）", name: "leadLine1", widget: "string" }
+              - { label: "説明文（2行目）", name: "leadLine2", widget: "string" }
+              - { label: "InstagramのリンクURL", name: "buttonHref", widget: "string" }
+              - { label: "表示するアカウント名（例: @alohacoco_official）", name: "handle", widget: "string" }
+
+          - label: "フッター"
+            name: "footer"
+            widget: "object"
+            fields:
+              - label: "SHOPPINGリンク一覧"
+                name: "shoppingLinks"
+                widget: "list"
+                summary: "{{label}}"
+                fields:
+                  - { label: "表示名", name: "label", widget: "string" }
+                  - { label: "リンク先URL", name: "href", widget: "string" }
+              - label: "GUIDEリンク一覧"
+                name: "guideLinks"
+                widget: "list"
+                summary: "{{label}}"
+                fields:
+                  - { label: "表示名", name: "label", widget: "string" }
+                  - { label: "リンク先URL", name: "href", widget: "string" }
+              - { label: "コピーライト文言", name: "copyright", widget: "string" }

@@ -166,7 +166,7 @@
   <div class="header-inner">
     <a href="#" class="logo">Aloha<span>Coco</span></a>
     <nav id="nav">
-      <ul>
+      <ul id="nav-list">
         <li><a href="#new-arrival">New Arrival</a></li>
         <li><a href="#category">Category</a></li>
         <li><a href="#gallery">Gallery</a></li>
@@ -175,7 +175,7 @@
       </ul>
     </nav>
     <div style="display:flex;align-items:center;gap:14px;">
-      <a class="cart-btn" href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">Online Shop</a>
+      <a class="cart-btn" id="cart-btn" href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">Online Shop</a>
       <button class="menu-toggle" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
     </div>
   </div>
@@ -186,7 +186,7 @@
   <div class="hero-content">
     <!-- <div class="script">AlohaCoco</div> -->
     <!-- <div class="sub">Okinawa &times; Hawaii</div> -->
-    <a class="hero-cta" href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">SHOP NOW</a>
+    <a class="hero-cta" id="hero-cta" href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">SHOP NOW</a>
   </div>
   <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#fdf8ef" d="M0,40 C240,90 480,0 720,30 C960,60 1200,20 1440,50 L1440,80 L0,80 Z"/></svg>
 </div>
@@ -212,9 +212,9 @@
 <!-- NEW ARRIVAL -->
 <section id="new-arrival">
   <div class="container">
-    <div class="sec-title"><span class="en">New Arrival</span><span class="jp">新着アイテム</span></div>
-    <p class="sec-lead">商品をクリック・タップするとオンラインショップの商品ページへ移動します。</p>
-    <div class="grid">
+    <div class="sec-title"><span class="en" id="na-title-en">New Arrival</span><span class="jp" id="na-title-jp">新着アイテム</span></div>
+    <p class="sec-lead" id="na-lead">商品をクリック・タップするとオンラインショップの商品ページへ移動します。</p>
+    <div class="grid" id="new-arrival-grid">
 
       <a class="card" href="https://cocoshopcoco.thebase.in/items/142959355" target="_blank" rel="noopener">
         <div class="thumb"><span class="tag">NEW</span><img src="https://baseec-img-mng.akamaized.net/images/item/origin/3d14e9ad499d03c3487af3d019fb57fb.png?imformat=generic&q=90&im=Resize,width=640,type=normal" alt="SURFGIRLCOCOキーホルダー" loading="lazy"></div>
@@ -297,16 +297,16 @@
       </a>
 
     </div>
-    <div class="view-all"><a class="btn-outline" href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">VIEW ALL ITEMS</a></div>
+    <div class="view-all"><a class="btn-outline" id="na-viewall" href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">VIEW ALL ITEMS</a></div>
   </div>
 </section>
 
 <!-- CATEGORY -->
 <section class="category" id="category">
   <div class="container">
-    <div class="sec-title"><span class="en">Category</span><span class="jp">カテゴリーから探す</span></div>
-    <p class="sec-lead">お好みのカテゴリーからアイテムをお探しいただけます。</p>
-    <div class="cat-grid">
+    <div class="sec-title"><span class="en" id="cat-title-en">Category</span><span class="jp" id="cat-title-jp">カテゴリーから探す</span></div>
+    <p class="sec-lead" id="cat-lead">お好みのカテゴリーからアイテムをお探しいただけます。</p>
+    <div class="cat-grid" id="category-grid">
       <a class="cat-card" href="https://cocoshopcoco.thebase.in/categories/900832" target="_blank" rel="noopener">
         <img src="https://baseec-img-mng.akamaized.net/images/shop_front/cocoshopcoco/9ef65afbd2e8f0a7e7383328c40875d4.png" alt="レディースファッション" loading="lazy">
         <span class="label">レディースファッション</span>
@@ -338,8 +338,8 @@
 <!-- GALLERY -->
 <section id="gallery">
   <div class="container">
-    <div class="sec-title"><span class="en">Shop Gallery</span><span class="jp">店内の様子</span></div>
-    <p class="sec-lead">那覇の実店舗にもぜひ遊びに来てください。</p>
+    <div class="sec-title"><span class="en" id="gal-title-en">Shop Gallery</span><span class="jp" id="gal-title-jp">店内の様子</span></div>
+    <p class="sec-lead" id="gal-lead">那覇の実店舗にもぜひ遊びに来てください。</p>
     <div class="gallery-grid" id="gallery-grid">
       <div class="gallery-item"><img src="IMG_0881.JPG" alt="店内ディスプレイ" loading="lazy"><span class="cap"></span></div>
       <div class="gallery-item"><img src="IMG_0821.JPG" alt="ALOHAISAI ロングスリーブTシャツ" loading="lazy"><span class="cap"></span></div>
@@ -353,11 +353,11 @@
   <div class="container about-inner">
     <img id="about-img" src="IMG_0942.JPG" alt="ALOHACOCO 店内ディスプレイ" loading="lazy">
     <div class="about-text">
-      <h2>About AlohaCoco</h2>
-      <div class="jp-sub">ALOHACOCOについて</div>
+      <h2 id="about-title-en">About AlohaCoco</h2>
+      <div class="jp-sub" id="about-jp-sub">ALOHACOCOについて</div>
       <p id="about-text1">ALOHACOCOは、海好き・ハワイ好き・沖縄好きな方に向けて、オリジナルデザインのTシャツやキャップ、バッグ、ハワイアンジュエリーなどを取り揃えています。</p>
       <p id="about-text2">大人からキッズまで、家族みんなで楽しめるアイテムを揃えているので、ファミリーコーデやお揃いコーデもおすすめです。</p>
-      <a class="btn-outline" href="https://cocoshopcoco.thebase.in/about" target="_blank" rel="noopener">MORE</a>
+      <a class="btn-outline" id="about-button" href="https://cocoshopcoco.thebase.in/about" target="_blank" rel="noopener">MORE</a>
     </div>
   </div>
 </section>
@@ -365,11 +365,11 @@
 <!-- INSTAGRAM -->
 <section class="insta">
   <div class="container">
-    <div class="sec-title"><span class="en">Follow Us</span><span class="jp">最新情報はSNSでチェック</span></div>
-    <p>新商品やキャンペーン情報をいち早くお届けしています。<br>フォローお待ちしています！</p>
-    <a class="insta-btn" href="https://www.instagram.com/alohacoco_official/" target="_blank" rel="noopener">
+    <div class="sec-title"><span class="en" id="insta-title-en">Follow Us</span><span class="jp" id="insta-title-jp">最新情報はSNSでチェック</span></div>
+    <p id="insta-lead">新商品やキャンペーン情報をいち早くお届けしています。<br>フォローお待ちしています！</p>
+    <a class="insta-btn" id="insta-btn" href="https://www.instagram.com/alohacoco_official/" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-      @alohacoco_official
+      <span id="insta-handle">@alohacoco_official</span>
     </a>
 
   </div>
@@ -383,7 +383,7 @@
     </div>
     <div>
       <h4>SHOPPING</h4>
-      <ul>
+      <ul id="footer-shopping">
         <li><a href="https://cocoshopcoco.thebase.in/" target="_blank" rel="noopener">オンラインショップ</a></li>
         <li><a href="https://cocoshopcoco.thebase.in/categories/3928241" target="_blank" rel="noopener">SALE</a></li>
         <li><a href="https://cocoshopcoco.thebase.in/categories/4181399" target="_blank" rel="noopener">お得なギフトセット</a></li>
@@ -392,7 +392,7 @@
     </div>
     <div>
       <h4>GUIDE</h4>
-      <ul>
+      <ul id="footer-guide">
         <li><a href="https://cocoshopcoco.thebase.in/about" target="_blank" rel="noopener">ALOHACOCOについて</a></li>
         <li><a href="https://thebase.com/inquiry/cocoshopcoco" target="_blank" rel="noopener">お問い合わせ</a></li>
         <li><a href="https://cocoshopcoco.thebase.in/privacy" target="_blank" rel="noopener">プライバシーポリシー</a></li>
@@ -400,7 +400,7 @@
       </ul>
     </div>
   </div>
-  <div class="copyright">© ALOHACOCO All Rights Reserved.</div>
+  <div class="copyright" id="footer-copyright">© ALOHACOCO All Rights Reserved.</div>
 </footer>
 
 <script>
@@ -423,10 +423,27 @@
 <!-- CMSで編集した内容(content/site.json)をページに反映する -->
 <script>
 (function(){
+  function setText(id, text){
+    var el = document.getElementById(id);
+    if (el && text) el.textContent = text;
+  }
+  function setHTML(id, html){
+    var el = document.getElementById(id);
+    if (el && html) el.innerHTML = html;
+  }
+  function clearAndFill(containerId, items, builderFn){
+    var el = document.getElementById(containerId);
+    if (!el || !items || !items.length) return;
+    el.innerHTML = '';
+    items.forEach(function(item){ el.appendChild(builderFn(item)); });
+  }
+
   fetch('content/site.json', { cache: 'no-store' }).then(function(r){
     if (!r.ok) throw new Error('site.json not found');
     return r.json();
   }).then(function(data){
+
+    // フォント
     if (data.fonts) {
       var FONT_MAP = {
         'Noto Sans JP': { google: 'Noto+Sans+JP:wght@400;500;700', css: "'Noto Sans JP','Montserrat',sans-serif" },
@@ -450,23 +467,117 @@
       document.documentElement.style.setProperty('--font-accent', accentFont.css);
     }
 
-    if (data.topbarBold) document.getElementById('topbar-bold').textContent = data.topbarBold;
-    if (data.topbarText) document.getElementById('topbar-text').textContent = data.topbarText;
+    // お知らせバー
+    if (data.topbarBold) setText('topbar-bold', data.topbarBold);
+    if (data.topbarText) setText('topbar-text', data.topbarText);
 
-    if (data.hero && data.hero.image) {
-      document.getElementById('hero').style.backgroundImage = "url('" + data.hero.image + "')";
+    // ナビゲーション
+    if (data.nav && data.nav.length) {
+      clearAndFill('nav-list', data.nav, function(item){
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.textContent = item.label || '';
+        a.href = item.href || '#';
+        if (item.href && item.href.indexOf('http') === 0) { a.target = '_blank'; a.rel = 'noopener'; }
+        li.appendChild(a);
+        return li;
+      });
+    }
+    if (data.cartButton) {
+      var cartBtn = document.getElementById('cart-btn');
+      if (cartBtn) {
+        if (data.cartButton.label) cartBtn.textContent = data.cartButton.label;
+        if (data.cartButton.href) cartBtn.href = data.cartButton.href;
+      }
     }
 
-    if (data.about) {
-      if (data.about.image) document.getElementById('about-img').src = data.about.image;
-      if (data.about.text1) document.getElementById('about-text1').textContent = data.about.text1;
-      if (data.about.text2) document.getElementById('about-text2').textContent = data.about.text2;
+    // ヒーロー
+    if (data.hero) {
+      if (data.hero.image) document.getElementById('hero').style.backgroundImage = "url('" + data.hero.image + "')";
+      var heroCta = document.getElementById('hero-cta');
+      if (heroCta) {
+        if (data.hero.ctaLabel) heroCta.textContent = data.hero.ctaLabel;
+        if (data.hero.ctaHref) heroCta.href = data.hero.ctaHref;
+      }
     }
 
+    // 新着アイテム
+    if (data.newArrival) {
+      setText('na-title-en', data.newArrival.titleEn);
+      setText('na-title-jp', data.newArrival.titleJp);
+      setText('na-lead', data.newArrival.lead);
+      var naViewAll = document.getElementById('na-viewall');
+      if (naViewAll) {
+        if (data.newArrival.viewAllLabel) naViewAll.textContent = data.newArrival.viewAllLabel;
+        if (data.newArrival.viewAllHref) naViewAll.href = data.newArrival.viewAllHref;
+      }
+      clearAndFill('new-arrival-grid', data.newArrival.items, function(p){
+        var a = document.createElement('a');
+        a.className = 'card';
+        a.href = p.href || '#';
+        a.target = '_blank';
+        a.rel = 'noopener';
+        var thumb = document.createElement('div');
+        thumb.className = 'thumb';
+        if (p.tag) {
+          var tag = document.createElement('span');
+          tag.className = 'tag';
+          tag.textContent = p.tag;
+          thumb.appendChild(tag);
+        }
+        var img = document.createElement('img');
+        img.src = p.image || '';
+        img.alt = p.name || '';
+        img.loading = 'lazy';
+        thumb.appendChild(img);
+        a.appendChild(thumb);
+        var info = document.createElement('div');
+        info.className = 'info';
+        var name = document.createElement('div');
+        name.className = 'name';
+        name.textContent = p.name || '';
+        info.appendChild(name);
+        var price = document.createElement('div');
+        price.className = 'price';
+        price.textContent = p.price || '';
+        info.appendChild(price);
+        a.appendChild(info);
+        return a;
+      });
+    }
+
+    // カテゴリー
+    if (data.category) {
+      setText('cat-title-en', data.category.titleEn);
+      setText('cat-title-jp', data.category.titleJp);
+      setText('cat-lead', data.category.lead);
+      clearAndFill('category-grid', data.category.items, function(c){
+        var a = document.createElement('a');
+        a.className = 'cat-card reveal visible';
+        a.href = c.href || '#';
+        a.target = '_blank';
+        a.rel = 'noopener';
+        var img = document.createElement('img');
+        img.src = c.image || '';
+        img.alt = c.label || '';
+        img.loading = 'lazy';
+        a.appendChild(img);
+        var label = document.createElement('span');
+        label.className = 'label';
+        label.textContent = c.label || '';
+        a.appendChild(label);
+        return a;
+      });
+    }
+
+    // ギャラリー
+    if (data.gallerySection) {
+      setText('gal-title-en', data.gallerySection.titleEn);
+      setText('gal-title-jp', data.gallerySection.titleJp);
+      setText('gal-lead', data.gallerySection.lead);
+    }
     if (data.gallery && data.gallery.length) {
-      var grid = document.getElementById('gallery-grid');
-      grid.innerHTML = '';
-      data.gallery.forEach(function(item){
+      clearAndFill('gallery-grid', data.gallery, function(item){
         var div = document.createElement('div');
         div.className = 'gallery-item reveal visible';
         var img = document.createElement('img');
@@ -478,9 +589,61 @@
         cap.className = 'cap';
         cap.textContent = item.alt || '';
         div.appendChild(cap);
-        grid.appendChild(div);
+        return div;
       });
     }
+
+    // About
+    if (data.about) {
+      setText('about-title-en', data.about.titleEn);
+      setText('about-jp-sub', data.about.jpSub);
+      if (data.about.image) document.getElementById('about-img').src = data.about.image;
+      if (data.about.text1) setText('about-text1', data.about.text1);
+      if (data.about.text2) setText('about-text2', data.about.text2);
+      var aboutBtn = document.getElementById('about-button');
+      if (aboutBtn) {
+        if (data.about.buttonLabel) aboutBtn.textContent = data.about.buttonLabel;
+        if (data.about.buttonHref) aboutBtn.href = data.about.buttonHref;
+      }
+    }
+
+    // Instagram
+    if (data.instagram) {
+      setText('insta-title-en', data.instagram.titleEn);
+      setText('insta-title-jp', data.instagram.titleJp);
+      if (data.instagram.leadLine1 || data.instagram.leadLine2) {
+        setHTML('insta-lead', (data.instagram.leadLine1 || '') + '<br>' + (data.instagram.leadLine2 || ''));
+      }
+      var instaBtn = document.getElementById('insta-btn');
+      if (instaBtn && data.instagram.buttonHref) instaBtn.href = data.instagram.buttonHref;
+      setText('insta-handle', data.instagram.handle);
+    }
+
+    // フッター
+    if (data.footer) {
+      clearAndFill('footer-shopping', data.footer.shoppingLinks, function(l){
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.textContent = l.label || '';
+        a.href = l.href || '#';
+        a.target = '_blank';
+        a.rel = 'noopener';
+        li.appendChild(a);
+        return li;
+      });
+      clearAndFill('footer-guide', data.footer.guideLinks, function(l){
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.textContent = l.label || '';
+        a.href = l.href || '#';
+        a.target = '_blank';
+        a.rel = 'noopener';
+        li.appendChild(a);
+        return li;
+      });
+      setText('footer-copyright', data.footer.copyright);
+    }
+
   }).catch(function(e){
     console.warn('content/site.json を読み込めませんでした（初期表示のまま）:', e);
   });
